@@ -1,0 +1,48 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cmsc436.msproject.util.WarningFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin"
+        android:paddingBottom="@dimen/margin"
+        android:gravity="center"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold"
+        android:text="@string/sampleText"/>
+
+    <View
+        android:id="@+id/lineSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/title"
+        android:background="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lineSeparator"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold"
+        android:text="@string/sampleText"/>
+
+
+    <Button
+        android:id="@+id/okayBtn"
+        android:layout_width="@dimen/fragmentBtnWidth"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/alertBtnTextSize"
+        android:text="@string/okayLabel"/>
+</RelativeLayout>

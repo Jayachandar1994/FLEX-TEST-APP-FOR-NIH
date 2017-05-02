@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">MS Project</string>
+
+    <string name="sampleText">Sample text</string>
+
+    <string name="selectTestLabel">Select a test</string>
+    <string name="tapLabel">Tap</string>
+    <string name="spiralLabel">Spiral</string>
+    <string name="bubbleLabel">Bubble</string>
+    <string name="balloonLabel">Balloon</string>
+    <string name="curlLabel">Flex</string>
+    <string name="walkingIndoorLabel">Indoor Walking</string>
+
+    <string name="tapTestLabel">Tap Test</string>
+    <string name="spiralTestLabel">Spiral Test</string>
+    <string name="bubbleTestLabel">Bubble Test</string>
+    <string name="balloonTestLabel">Balloon Test</string>
+    <string name="curlTestLabel">Curl Test</string>
+    <string name="walkingIndoorTestLabel">Indoor Walking Test</string>
+
+    <string name="mainMenuBtnLabel">Main Menu</string>
+    <string name="balloonMenuBtnLabel">Balloon Menu</string>
+
+    <string name="instructionsLabel">Instructions</string>
+    <string name="viewProgressLabel">View Progress</string>
+    <string name="takeTestLabel">Take Test</string>
+    <string name="backBtnLabel">Back</string>
+    <string name="beginLabel">Begin</string>
+    <string name="cancelLabel">Cancel</string>
+    <string name="calibrateLabel">Calibrate</string>
+    <string name="calibrationLabel">Calibration</string>
+    <string name="calibrateDeviceLabel">Calibrate Device</string>
+    <string name="progressLabel">Progress</string>
+    <string name="dateLabel">Test Date</string>
+
+    <string name="leftLowerCase">left</string>
+    <string name="leftUpperCase">Left</string>
+    <string name="rightLowerCase">right</string>
+    <string name="rightUpperCase">Right</string>
+    <string name="selectHandLabel">Select which hand to test first</string>
+    <string name="selectArmOrLegLabel">Test arms or legs?</string>
+    <string name="selectArmLabel">Select which arm to test first</string>
+    <string name="selectLegLabel">Select which leg to test first</string>
+    <string name="calibrateArmOrLegLabel">Calibrate arms or legs?</string>
+    <string name="calibrateArmLabel">Select which arm to calibrate first</string>
+    <string name="calibrateLegLabel">Select which leg to calibrate first</string>
+    <string name="armsLabel">Arms</string>
+    <string name="legsLabel">Legs</string>
+    <string name="okayLabel">Okay</string>
+    <string name="testResultsLabel">Test Results</string>
+    <string name="stepsLabel">Steps</string>
+    <string name="timeLabel">Time</string>
+    <string name="speedLabel">Speed</string>
+
+    <string name="clearSavedResultsBtn">Clear Data</string>
+
+    <string name="tapInstructions">
+        1) Repeatedly tap the red \"TAP\" button as fast as you can for 10 seconds (the timer starts when you begin tapping)\n\n
+        2) Repeat the test 3 times in a row for each hand\n\n
+        3) When the test is completed the app will display your average number of taps for each hand
+    </string>
+    <string name="aveTapsLabel">Average number of taps for each hand</string>
+
+    <string name="balloonInstructions">
+        1) Tap the red circle when it appears on screen\n\n
+        2) The red circle will disappear\n\n
+        3) After 1-3 seconds a new red circle will be generated at a random location on the screen\n\n
+        4) Repeat the test 10 times in a row for each hand\n\n
+        5) When the test is completed the app will display your average response time for each hand
+    </string>
+    <string name="aveRespTimeLabel">Average normalized response time for each hand (millisec/pixel)</string>
+
+    <string name="curlInstructions">NOTE: First calibrate your device if you have not already done so\n\n
+        Arm Curl Test:\n
+        1) Hold the device in the palm of your hand with the screen up\n\n
+        2) Stretch your arm out parallel to your shoulder\n\n
+        3) When you hear a beep, begin the test by curling your arm to your shoulder and back
+        (if you can\'t curl up to your shoulder then go as far as you can)\n\n
+        4) Complete 10 curls in a row for each arm. The app will beep once it has recorded 10 curls\n\n
+        5) When the test is completed the app will display the total number of complete curls and
+        the average completed curl time for each arm\n\n
+        Leg Curl Test:\n
+        1) Attach the device to your leg with the screen facing out\n\n
+        2) Sit on a chair with your legs down\n\n
+        3) When you hear a beep, begin the test by curling your leg parallel to your knee and back
+        (if you can\'t curl up to your knee then go as far as you can)\n\n
+        4) Complete 10 curls in a row for each leg. The app will beep once it has recorded 10 curls\n\n
+        5) When the test is completed the app will display the total number of complete curls and
+        the average completed curl time for each leg
+    </string>
+
+    <string name="curlCalibrateInstructions">
+        Arm Calibration:\n
+        1) Hold the device in the palm of your hand with the screen up\n\n
+        2) Stretch your arm out parallel to your shoulder and hold your arm in the stretched position for 10 seconds\n\n
+        3) You will hear a beep when the timer starts and ends, this records your arm\'s stretched out position\n\n
+        4) Curl your arm to your shoulder and hold your arm in the curled position for 10 seconds\n\n
+        5) You will hear a beep when the timer starts and ends, this records your arm\'s curled position\n\n
+        6) Repeat the calibration for both arms\n\n
+        Leg Calibration:\n
+        1) Attach the device to your leg with the screen facing outward\n\n
+        2) Sit on a chair with your legs down and tap the screen to begin calibration and keep
+        your legs at a 90 degree angle to the ground for 10 seconds\n\n
+        3) You will hear a beep when the timer starts and ends, this records your leg\'s curled position\n\n
+        4) Stretch your leg up parallel to your knee and hold your leg in the stretched position for 10 seconds\n\n
+        5) You will hear a beep when the timer starts and ends, this records your leg\'s stretched out position\n\n
+        6) Repeat the calibration for both legs
+    </string>
+    <string name="beginCalibrationLabel">Beginning Calibration</string>
+    <string name="curlMenu">Curl Menu</string>
+
+    <string name="walkingIndoorProgressSpeedLabel">Speed (feet/min)</string>
+    <string name="walkingIndoorInstructions">
+        1) Make sure that you phone\'s volume is on\n\n
+        2) Begin the test and walk 25 steps\n\n
+        3) The phone\'s pedometer will count the steps and output a small beep to signal that the test is over\n\n
+        4) When the test is completed the app will display your average speed for walking 25 steps
+    </string>
+
+    <string name="patientIdTitle">Set Patient ID</string>
+    <string name="setPatientIdBtnLabel">Set ID</string>
+    <string name="patientId">Patient ID</string>
+</resources>

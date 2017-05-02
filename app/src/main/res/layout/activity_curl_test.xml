@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cmsc436.msproject.curlTest.CurlTest">
+
+    <TextView
+        android:id="@+id/curlTestLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:textStyle="bold"
+        android:textSize="@dimen/textSize"/>
+
+    <TextView
+        android:id="@+id/curlsLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/curlTestLabel"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:textStyle="bold"
+        android:textSize="@dimen/textSize"/>
+
+    <TextView
+        android:id="@+id/completedCurlsLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/curlsLabel"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:textStyle="bold"
+        android:textSize="@dimen/textSize"/>
+
+    <TextView
+        android:id="@+id/timerLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/completedCurlsLabel"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:textStyle="bold"
+        android:textSize="@dimen/textSize"/>
+</RelativeLayout>

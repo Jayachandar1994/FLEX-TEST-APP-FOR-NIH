@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSize">35dp</dimen>
+    <dimen name="margin">10dp</dimen>
+
+    <dimen name="selectTestBtnWidth">270dp</dimen>
+    <dimen name="menuBtnWidth">300dp</dimen>
+    <dimen name="selectBtnWidth">140dp</dimen>
+
+    <dimen name="balloonBtnDiameter">100dp</dimen>
+    <dimen name="tapBtnDiameter">150dp</dimen>
+
+    <dimen name="alertBtnTextSize">30dp</dimen>
+    <dimen name="fragmentBtnWidth">140dp</dimen>
+</resources>

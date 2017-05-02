@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cmsc436.msproject.curlTest.calibrate.CurlCalibrateSelect">
+
+    <TextView
+        android:id="@+id/selectLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/margin"
+        android:textStyle="bold"
+        android:textSize="@dimen/textSize"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="@dimen/selectBtnWidth"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="@dimen/selectBtnWidth"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</RelativeLayout>

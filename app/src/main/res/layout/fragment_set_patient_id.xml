@@ -1,0 +1,63 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cmsc436.msproject.util.AlertFragment">
+
+    <TextView
+        android:id="@+id/patientLoginTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin"
+        android:paddingBottom="@dimen/margin"
+        android:gravity="center"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold"
+        android:text="@string/patientIdTitle"/>
+
+    <View
+        android:id="@+id/lineSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/patientLoginTitle"
+        android:background="@color/colorPrimaryDark"/>
+
+    <EditText
+        android:id="@+id/patientIdInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/lineSeparator"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="@dimen/textSize"
+        android:hint="@string/patientId"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/patientIdInput"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/setPatientIdBtn"
+            android:layout_width="@dimen/fragmentBtnWidth"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/alertBtnTextSize"
+            android:text="@string/setPatientIdBtnLabel"/>
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="@dimen/fragmentBtnWidth"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/alertBtnTextSize"
+            android:text="@string/cancelLabel"/>
+    </LinearLayout>
+</RelativeLayout>

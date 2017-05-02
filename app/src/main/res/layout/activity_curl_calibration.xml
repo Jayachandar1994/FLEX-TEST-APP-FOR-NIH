@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cmsc436.msproject.curlTest.calibrate.CurlCalibration">
+
+    <TextView
+        android:id="@+id/calibrationLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold"
+        android:text="@string/beginCalibrationLabel"/>
+
+    <TextView
+        android:id="@+id/timerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold"
+        android:text="@string/sampleText"/>
+
+    <Button
+        android:id="@+id/curlMenuBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin"
+        android:textSize="@dimen/textSize"
+        android:visibility="invisible"
+        android:text="@string/curlMenu"/>
+</RelativeLayout>

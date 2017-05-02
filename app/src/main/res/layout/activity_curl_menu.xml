@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:fillViewport="true"
+    tools:context="cmsc436.msproject.curlTest.CurlMenu">
+
+    <TextView
+        android:id="@+id/curlTestLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/margin"
+        android:paddingBottom="20dp"
+        android:textStyle="bold"
+        android:textSize="@dimen/textSize"
+        android:text="@string/curlTestLabel"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:layout_below="@id/curlTestLabel">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/instructionsBtn"
+                android:layout_width="@dimen/menuBtnWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textSize="@dimen/textSize"
+                android:text="@string/instructionsLabel"/>
+
+            <Button
+                android:id="@+id/calibrateBtn"
+                android:layout_width="@dimen/menuBtnWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textSize="@dimen/textSize"
+                android:text="@string/calibrateDeviceLabel"/>
+
+            <!--
+            <Button
+                android:id="@+id/balloonViewProgressBtn"
+                android:layout_width="@dimen/menuBtnWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textSize="@dimen/textSize"
+                android:text="@string/viewProgressLabel"/>
+            -->
+
+            <Button
+                android:id="@+id/takeTestBtn"
+                android:layout_width="@dimen/menuBtnWidth"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize"
+                android:text="@string/takeTestLabel"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
+
