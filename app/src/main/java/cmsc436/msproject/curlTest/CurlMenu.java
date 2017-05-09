@@ -1,8 +1,9 @@
 package cmsc436.msproject.curlTest;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import cmsc436.msproject.R;
@@ -38,9 +39,16 @@ public class CurlMenu extends AppCompatActivity {
         findViewById(R.id.takeTestBtn).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(v.getContext(), CurlSelect.class);
-                startActivity(intent);
+                Intent intent = new Intent(v.getContext(), StartActivity.class);
+                startActivityForResult(intent,-1);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.e("FIISH", requestCode+"");
+        setResult(RESULT_OK);
+        finish();
     }
 }

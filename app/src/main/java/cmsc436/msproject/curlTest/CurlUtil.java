@@ -25,9 +25,6 @@ public class CurlUtil {
     public static final String NUM_OF_COMPLETED_CURLS = "NUM_OF_COMPLETED_CURLS";
     public static final String TOTAL_COMPLETED_CURL_TIME = "TOTAL_COMPLETED_CURL_TIME";
 
-    public static final String CURL_RANGE = "CURL_RANGE";
-    public static final String STRETCH_RANGE = "STRETCH_RANGE";
-
     /**
      * Get the shared preference key of the given parameters
      *

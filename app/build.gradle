@@ -50,13 +50,17 @@ dependencies {
         exclude group: 'org.apache.httpcomponents'
         exclude group: 'com.google.code.findbugs'
     }
+
+    android {
+        useLibrary 'org.apache.http.legacy'
+    }
+    compile project(':frontendhelper-release0.2')
+
+    compile project(':sheets436-0.0.6-release')
     compile 'com.google.android.gms:play-services-auth:10.2.1'
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
     compile 'pub.devrel:easypermissions:0.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
     testCompile 'junit:junit:4.12'
-    compile project(':frontendhelper-release0.2')
-    compile project(':sheets-helper')
-    compile project(':sheets436-0.0.6-release')
 }

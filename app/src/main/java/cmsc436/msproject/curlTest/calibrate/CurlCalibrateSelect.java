@@ -2,8 +2,8 @@ package cmsc436.msproject.curlTest.calibrate;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -152,9 +152,11 @@ public class CurlCalibrateSelect extends AppCompatActivity {
         String text = (String) ((Button) view).getText();
         if (bodyPart == null){
             bodyPart = getBodyPart(text);
+            int side = Side.getSide(text);
             // if selected body part is already calibrated
             Intent intent = new Intent(getApplicationContext(), CurlCalibrateSelect.class);
             intent.putExtra(CurlUtil.BODY_PART, bodyPart);
+            intent.putExtra(CurlUtil.SIDE, side);
             startActivity(intent);
         }
         else{

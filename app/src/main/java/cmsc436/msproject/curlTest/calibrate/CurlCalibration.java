@@ -10,19 +10,22 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import cmsc436.msproject.R;
+import cmsc436.msproject.curlTest.CurlListener;
 import cmsc436.msproject.curlTest.CurlMenu;
 import cmsc436.msproject.curlTest.CurlUtil;
 import cmsc436.msproject.util.Side;
 import cmsc436.msproject.util.Utilities;
+
+import static cmsc436.msproject.curlTest.CurlUtil.SIDE;
 
 public class CurlCalibration extends AppCompatActivity implements SensorEventListener{
     /**
@@ -60,6 +63,7 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
      * The position of the arm/foot, either CURLED or STRETCHED
      */
     private String position;
+    private String temp;
 
     /**
      * General calibration information
@@ -107,7 +111,7 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
     /**
      * The number of milliseconds for the calibration
      */
-    private static final int calibrationTime = 10000;
+    private static final int calibrationTime = 4000;
 
     /**
      * ToneGenerator to signal the user with beeps
@@ -115,7 +119,7 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
     private ToneGenerator toneGenerator;
 
     private SensorManager sensorManager;
-    private Sensor accelerometer;
+    private Sensor gravity;
     private static final String LOG_TAG = CurlCalibration.class.getSimpleName();
     private static final String CALIBRATION_COMPLETED = "Completed calibration for ";
 
@@ -126,7 +130,7 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
 
         // Get the intent data
         Intent intent = getIntent();
-        side = intent.getIntExtra(CurlUtil.SIDE, 0);
+        side = intent.getIntExtra(SIDE, 0);
         sideName = Side.getSideName(side);
         bodyPart = intent.getStringExtra(CurlUtil.BODY_PART).toLowerCase();
         calibratedOppositeSide = intent.getBooleanExtra(CurlUtil.TESTED_OPP_SIDE, false);
@@ -157,7 +161,7 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
 
         // Initialize the sensors
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        gravity = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
 
         // Initialize ToneGenerator
         toneGenerator = new ToneGenerator(AudioManager.STREAM_RING, 100);
@@ -181,7 +185,7 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
                 calibrationLabel.setText(text);
                 calibrationTimer.start();
                 beginTestBeep();
-                registerAccelerometer();
+                registerGravity();
             }
         };
         calibrationTimer = new CountDownTimer(calibrationTime, 100) {
@@ -193,14 +197,17 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
 
             @Override
             public void onFinish() {
-                unregisterAccelerometer();
+                //TODO
+                unregisterGravity();
+
                 endTestBeep();
                 storeToSharedPreferences();
 
                 // if the user has not calibrated the opposite CURLED or STRETCHED position
                 if (!calibratedOppositeMotion){
                     calibratedOppositeMotion = true;
-                    resetAccelVariables();
+                    //TODO
+                    resetGravityVariables();
                     position = CurlUtil.getOppositePosition(position);
                     String fragmentMessage = "Calibrate the " + position.toLowerCase() + " position of your " +
                             sideName + " " + bodyPart;
@@ -213,7 +220,7 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
                     if (!calibratedOppositeSide){
                         // Calibrate the opposite side
                         Intent intent = new Intent(getApplicationContext(), CurlCalibration.class);
-                        intent.putExtra(CurlUtil.SIDE, Side.getOppositeSide(side));
+                        intent.putExtra(SIDE, Side.getOppositeSide(side));
                         intent.putExtra(CurlUtil.BODY_PART, bodyPart.toUpperCase());
                         intent.putExtra(CurlUtil.TESTED_OPP_SIDE, true);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -262,7 +269,8 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
         if (calibrationTimer != null){
             calibrationTimer.cancel();
         }
-        unregisterAccelerometer();
+        //TODO
+        unregisterGravity();
         toneGenerator.release();
     }
 
@@ -291,51 +299,88 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
     }
 
     /**
-     * Register the accelerometer sensor in the SensorManager
+     * Register the Gravity sensor in the SensorManager
      */
-    private void registerAccelerometer(){
-        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    private void registerGravity(){
+        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY), SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     /**
-     * Unregister the accelerometer sensor from the SensorManager
+     * Unregister the Gravity sensor from the SensorManager
      */
-    private void unregisterAccelerometer(){
+    private void unregisterGravity(){
         sensorManager.unregisterListener(this);
     }
 
     /**
-     * Reset the accelerometer variables
+     * Reset the Gravity variables
      */
-    private void resetAccelVariables(){
+    private void resetGravityVariables(){
         x = y = z = 0;
         sensorEventCount = 0;
     }
 
     /**
-     * Store the accelerometer data to the device's SharedPreferences
+
+     * Store the Gravity data to the device's SharedPreferences
+
      */
+
     private void storeToSharedPreferences(){
         SharedPreferences sharedPreferences = getSharedPreferences(Utilities.MS_SHARED_PREF_TAG, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
         float xAve = x / sensorEventCount;
         float yAve = y / sensorEventCount;
         float zAve = z / sensorEventCount;
         String key = CurlUtil.getSharedPrefKey(sideName, bodyPart, position);
-
         Log.d(LOG_TAG, "key = " + key);
 //        Log.d(LOG_TAG, "sensorEventCount = " + sensorEventCount + ", xAve = " + xAve +
-//                ", yAve = " + yAve + ", zAve = " + zAve);
 
+//                ", yAve = " + yAve + ", zAve = " + zAve);
         editor.putFloat(key + "X",xAve);
         editor.putFloat(key + "Y",yAve);
         editor.putFloat(key + "Z",zAve);
         editor.apply();
+        //global temp
+        //set temp = position;
+        //when this i called a second time, temp will equal the old position, and position will be the new position
+        //so if temp
+        // if measuring the extended angle, set min to the average y value
+        String bodyPart = getIntent().getStringExtra(CurlUtil.BODY_PART);
+        int side = getIntent().getIntExtra(SIDE, 0);
+// 1st ITERATION GOES INTO THIS if statement
+        // IF temp is not set to anything, then set it to and let it start at STRETCHED value
+        if (temp == null) {
+            temp = CurlUtil.STRETCHED; // be cause this the first position we calibrate
+        }
+// ??? 2nd ITERATION GOES INTO THIS else if statement ???
+        else if ( temp == position ) { // CurlUtil.STRETCHED or CURLED
+            if(bodyPart != null && bodyPart.equals(CurlUtil.ARM) && side == Side.LEFT) {
+                CurlListener.leftArmMin = yAve;
+            } else if(bodyPart != null && bodyPart.equals(CurlUtil.ARM) && side == Side.RIGHT) {
+                CurlListener.rightArmMin = yAve;
+            } else if(bodyPart != null && bodyPart.equals(CurlUtil.LEG) && side == Side.LEFT) {
+                CurlListener.leftLegMin = yAve;
+            } else if(bodyPart != null && bodyPart.equals(CurlUtil.LEG) && side == Side.RIGHT) {
+                CurlListener.rightLegMin = yAve;
+            }
+        }
+        // if measuring the extended angle, set min to the average y value
+        else {
+            if(bodyPart != null && bodyPart.equals(CurlUtil.ARM) && side == Side.LEFT) {
+                CurlListener.leftArmMax = yAve;
+            } else if(bodyPart != null && bodyPart.equals(CurlUtil.ARM) && side == Side.RIGHT) {
+                CurlListener.rightArmMax = yAve;
+            } else if(bodyPart != null && bodyPart.equals(CurlUtil.LEG) && side == Side.LEFT) {
+                CurlListener.leftLegMax = yAve;
+            } else if(bodyPart != null && bodyPart.equals(CurlUtil.LEG) && side == Side.RIGHT) {
+                CurlListener.rightLegMax = yAve;
+            }
+        }
     }
 
     /**
-     * Check if the accelerometer data is being stored in the SharedPreference correctly
+     * Check if the Gravity data is being stored in the SharedPreference correctly
      */
     private void checkSharedPreferences(){
         String keyStretched = CurlUtil.getSharedPrefKey(sideName, bodyPart, CurlUtil.STRETCHED);
@@ -359,7 +404,7 @@ public class CurlCalibration extends AppCompatActivity implements SensorEventLis
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+        if (sensorEvent.sensor.getType() == Sensor.TYPE_GRAVITY) {
             sensorEventCount++;
             x += sensorEvent.values[0];
             y += sensorEvent.values[1];

@@ -11,11 +11,7 @@ import android.view.View;
 import cmsc436.msproject.curlTest.CurlMenu;
 import cmsc436.msproject.util.Utilities;
 
-/**
- * The main activity which starts the app and lets the user pick which test they want to take
- *
- * @author Mohit Bisht
- */
+
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
@@ -28,8 +24,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.selCurlTestBtn).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                Bundle extras;
                 Intent intent = new Intent(v.getContext(), CurlMenu.class);
-                startActivity(intent.putExtras(getIntent().getExtras()));
+                if((extras = getIntent().getExtras()) != null)
+                    intent.putExtras(extras);
+                startActivity(intent);
             }
         });
 
