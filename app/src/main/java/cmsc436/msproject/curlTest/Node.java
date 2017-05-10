@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import edu.umd.cmsc436.frontendhelper.TrialMode;
-
+/* Node is a class that acts as an interface between the front end and the application. It gets the intents and executes them in the app */
 public class Node extends AppCompatActivity {
 
     @Override

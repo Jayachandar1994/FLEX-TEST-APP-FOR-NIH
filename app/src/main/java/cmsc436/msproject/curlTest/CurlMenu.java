@@ -20,13 +20,7 @@ public class CurlMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_curl_menu);
 
-//        findViewById(R.id.instructionsBtn).setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent(v.getContext(), CurlInstructions.class);
-//                startActivity(intent);
-//            }
-//        });
+
 
         findViewById(R.id.calibrateBtn).setOnClickListener(new View.OnClickListener(){
             @Override

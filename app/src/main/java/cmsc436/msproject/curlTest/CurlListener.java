@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class CurlListener implements SensorEventListener {
 
-
+/*calculating the curls. The main logic behin counting the curl is written in this class */
     float score;
     //private float x, y, z;
     private int sensorEventCount;
@@ -45,7 +45,7 @@ public class CurlListener implements SensorEventListener {
         }
         score = 0;
     }
-
+/* using gravity sensor to find curls */
     @Override
     public void onSensorChanged(SensorEvent sensorEvent){
         if(sensorEvent.sensor.getType() == Sensor.TYPE_GRAVITY){
@@ -59,15 +59,17 @@ public class CurlListener implements SensorEventListener {
 
     }
 
+    /* During the curl test all the values are stored in array list and progression of numbers is observed
+     if the numbers are either in an increasing or decreasing progression and closer to the calibarated min and max
+      the score is updated*/
+
     public String getScoreString(){
 
-        //score = 0;
 //        Log.i("OUTPUT: ", "outside for loop"); this is good
-
 
         for(int i = 0; i < arr.size(); i++) {
 
-//            Log.i("OUTPUT: ", "inside for loop"); this is good
+//          Log.i("OUTPUT: ", "inside for loop"); this is good
             if( arr.get(i) > (max -stddev) && !flag) { //and if flag == false
                 Log.i("OUTPUT: ", Float.toString(score));
                 score += 0.5;

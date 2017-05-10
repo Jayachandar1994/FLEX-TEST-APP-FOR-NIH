@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import cmsc436.msproject.R;
 
+/* This class begins the curl test and maintains the countdown for curl test during the test*/
+
 public class CurlActivity extends AppCompatActivity {
 
     @Override

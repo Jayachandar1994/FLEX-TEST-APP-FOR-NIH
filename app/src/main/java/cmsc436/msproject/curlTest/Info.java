@@ -9,7 +9,7 @@ import android.content.Intent;
 import edu.umd.cmsc436.sheets.Sheets;
 
 /**
- * Static class that stores all of the info
+ * Static class that stores all of the info and writes them to google sheets
  */
 
 public class Info {
@@ -51,14 +51,7 @@ public class Info {
         USER_ID = id;
     }
 
-//    public static Sheets.TestType getTestType(int i){
-//        switch (i){
-//            case 1: return Sheets.TestType.RH_CURL;
-//            case 2: return Sheets.TestType.LH_CURL;
-////            case 1: return Sheets.TestType.RH_CURL;
-////            case 1: return Sheets.TestType.RH_CURL;
-//        }
-//    }
+
 
 
     public static void setEXTRAS(Intent EXTRAS) {

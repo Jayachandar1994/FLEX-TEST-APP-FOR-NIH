@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import edu.umd.cmsc436.sheets.Sheets;
+/* Sheet manager class is the main class behind google sheets, ithe methods in this class are
+ * used to write results to google sheets */
 
 public class SheetManager implements Sheets.Host {
     private Activity activity;

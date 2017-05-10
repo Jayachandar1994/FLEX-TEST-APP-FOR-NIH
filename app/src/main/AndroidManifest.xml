@@ -25,12 +25,14 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
         </activity>
         <activity
             android:name=".curlTest.CurlMenu"
-            android:label="@string/curlTestLabel">
+            android:label="@string/curlTestLabel"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="edu.umd.cmsc436.flex.action.PRACTICE" />
@@ -51,7 +53,8 @@
         </activity>
         <activity
             android:name=".curlTest.CurlInstructions"
-            android:label="@string/curlTestLabel" >
+            android:label="@string/curlTestLabel"
+            android:screenOrientation="portrait">
 
         <intent-filter>
             <action android:name="edu.umd.cmsc436.flex.action.HELP" />
@@ -61,19 +64,25 @@
         </activity>
         <activity
             android:name=".curlTest.calibrate.CurlCalibrateMenu"
-            android:label="@string/curlLabel" />
+            android:label="@string/curlLabel"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".curlTest.calibrate.CurlCalibrateInstructions"
-            android:label="@string/curlLabel" />
+            android:label="@string/curlLabel"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".curlTest.calibrate.CurlCalibration"
-            android:label="@string/curlLabel" />
+            android:label="@string/curlLabel"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".curlTest.calibrate.CurlCalibrateSelect"
-            android:label="Flex" />
+            android:label="Flex"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".curlTest.StartActivity"
-            android:label="Flex">
+            android:label="Flex"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="cmsc436.msproject.curlTest.CurlActivity" />
 
@@ -82,14 +91,16 @@
         </activity>
         <activity
             android:name=".curlTest.CurlActivity"
-            android:label="Flex">
+            android:label="Flex"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="cmsc436.msproject.curlTest.CurlListener" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".curlTest.Node">
+        <activity android:name=".curlTest.Node"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="edu.umd.cmsc436.flex.action.TRIAL" />
 

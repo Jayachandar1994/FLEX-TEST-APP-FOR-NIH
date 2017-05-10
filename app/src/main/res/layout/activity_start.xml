@@ -13,35 +13,35 @@
         android:id="@+id/left_arm"
         android:text="Test Left Arm"
         android:onClick="startCurlLeft"
-        android:visibility="invisible"/>
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/right_arm"
         android:text="Test Right Arm"
         android:onClick="startCurlRight"
-        android:visibility="invisible"/>
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/left_leg"
         android:text="Test Left Leg"
         android:onClick="startLiftLeft"
-        android:visibility="invisible"/>
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/right_leg"
         android:text="Test Right Leg"
         android:onClick="startLiftRight"
-        android:visibility="invisible"/>
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/back_button"
         android:text="Go Back"
         android:onClick="startLiftRight"
-        android:visibility="invisible"/>
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -49,7 +49,6 @@
         android:text="Left Arm Score: N/A"
         android:layout_below="@id/right_leg"
         android:id="@+id/left_arm_text_view"
-        android:visibility="invisible"
         />
     <TextView
         android:layout_width="match_parent"
@@ -57,7 +56,6 @@
         android:text="Right Arm Score: N/A"
         android:layout_below="@id/left_arm_text_view"
         android:id="@+id/right_arm_text_view"
-        android:visibility="invisible"
         />
     <TextView
         android:layout_width="match_parent"
@@ -65,7 +63,6 @@
         android:text="Left Leg Score: N/A"
         android:layout_below="@id/right_arm_text_view"
         android:id="@+id/left_leg_text_view"
-        android:visibility="invisible"
         />
     <TextView
         android:layout_width="match_parent"
@@ -73,7 +70,6 @@
         android:text="Right Leg Score: N/A"
         android:layout_below="@id/left_leg_text_view"
         android:id="@+id/right_leg_text_view"
-        android:visibility="invisible"
         />
 
 </LinearLayout>

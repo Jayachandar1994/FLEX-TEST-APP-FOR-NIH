@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import cmsc436.msproject.R;
@@ -12,28 +14,51 @@ import cmsc436.msproject.curlTest.calibrate.CurlCalibrateMenu;
 import edu.umd.cmsc436.frontendhelper.TrialMode;
 import edu.umd.cmsc436.sheets.Sheets;
 
+/* This is the main class responsible to executing the curl test. It is responsible for the particular tests
+ * that the patient has to take and in the end displaying scores to the patient */
 
 public class StartActivity extends AppCompatActivity {
     static final int START_COUNT_RIGHT_ARM = 1, START_COUNT_LEFT_ARM =2,
             START_COUNT_RIGHT_LEG = 3, START_COUNT_LEFT_LEG =4;
     TextView rightArmTextView, leftArmTextView, rightLegTextView, leftLegTextView;
 
+    Button left_arm, right_arm, left_leg, right_leg;
+
+
+
     SheetManager sheetManager;
     private void initTest(){
         Sheets.TestType t = TrialMode.getAppendage(Info.EXTRAS);
-        switch(t){
-            case RH_CURL:
-                findViewById(R.id.right_arm).setVisibility(View.VISIBLE);
-                findViewById(R.id.right_arm_text_view).setVisibility(View.VISIBLE);
-            case LH_CURL:
-                findViewById(R.id.left_arm).setVisibility(View.VISIBLE);
-                findViewById(R.id.left_arm_text_view).setVisibility(View.VISIBLE);
-            case LF_CURL:
-                findViewById(R.id.left_leg).setVisibility(View.VISIBLE);
-                findViewById(R.id.left_leg_text_view).setVisibility(View.VISIBLE);
-            case RF_CURL:
-                findViewById(R.id.right_leg).setVisibility(View.VISIBLE);
-                findViewById(R.id.right_leg_text_view).setVisibility(View.VISIBLE);
+        Log.i("OUTPUT: ", t.toString());
+
+        if( t.toString() == "RH_CURL") {
+            left_arm.setVisibility(View.INVISIBLE);
+            leftArmTextView.setVisibility(View.INVISIBLE);
+            left_leg.setVisibility(View.INVISIBLE);
+            leftLegTextView.setVisibility(View.INVISIBLE);
+            right_leg.setVisibility(View.INVISIBLE);
+            rightLegTextView.setVisibility(View.INVISIBLE);
+        } else  if( t.toString() == "LH_CURL") {
+            right_arm.setVisibility(View.INVISIBLE);
+            rightArmTextView.setVisibility(View.INVISIBLE);
+            left_leg.setVisibility(View.INVISIBLE);
+            leftLegTextView.setVisibility(View.INVISIBLE);
+            right_leg.setVisibility(View.INVISIBLE);
+            rightLegTextView.setVisibility(View.INVISIBLE);
+        } else if( t.toString() == "RF_CURL") {
+            right_arm.setVisibility(View.INVISIBLE);
+            rightArmTextView.setVisibility(View.INVISIBLE);
+            left_leg.setVisibility(View.INVISIBLE);
+            leftLegTextView.setVisibility(View.INVISIBLE);
+            left_arm.setVisibility(View.INVISIBLE);
+            leftArmTextView.setVisibility(View.INVISIBLE);
+        } else if( t.toString() == "LF_CURL") {
+            right_arm.setVisibility(View.INVISIBLE);
+            rightArmTextView.setVisibility(View.INVISIBLE);
+            left_arm.setVisibility(View.INVISIBLE);
+            leftArmTextView.setVisibility(View.INVISIBLE);
+            right_leg.setVisibility(View.INVISIBLE);
+            rightLegTextView.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -41,15 +66,24 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        initTest();
         sheetManager = new SheetManager(this);
+
         rightArmTextView = (TextView) findViewById(R.id.right_arm_text_view);
         leftArmTextView = (TextView) findViewById(R.id.left_arm_text_view);
         rightLegTextView = (TextView) findViewById(R.id.right_leg_text_view);
         leftLegTextView = (TextView) findViewById(R.id.left_leg_text_view);
+
+        left_arm = (Button) findViewById(R.id.left_arm);
+        right_arm = (Button) findViewById(R.id.right_arm);
+        left_leg = (Button) findViewById(R.id.left_leg);
+        right_leg = (Button) findViewById(R.id.right_leg);
+
+        initTest();
+
     }
 
     public void startCurlRight(View view){
+
         if (CurlListener.rightArmMax == 0 && CurlListener.rightArmMin == 0){
             Intent intent = new Intent(this, CurlCalibrateMenu.class);
             startActivity(intent);
@@ -57,12 +91,13 @@ public class StartActivity extends AppCompatActivity {
             Intent intent = new Intent(this, CurlActivity.class);
             intent.putExtra("limb", START_COUNT_RIGHT_ARM);
             startActivityForResult(intent, START_COUNT_RIGHT_ARM);
-            view.setVisibility(View.INVISIBLE);
+            view.setVisibility(View.VISIBLE);
         }
 
     }
 
     public void startCurlLeft(View view){
+
 
         if (CurlListener.leftArmMax == 0 && CurlListener.leftArmMin == 0){
             Intent intent = new Intent(this, CurlCalibrateMenu.class);
@@ -71,12 +106,13 @@ public class StartActivity extends AppCompatActivity {
             Intent intent = new Intent(this, CurlActivity.class);
             intent.putExtra("limb", START_COUNT_LEFT_ARM);
             startActivityForResult(intent, START_COUNT_LEFT_ARM);
-            view.setVisibility(View.INVISIBLE);
+            view.setVisibility(View.VISIBLE);
 
         }
     }
 
     public void startLiftRight(View view){
+
         if (CurlListener.rightLegMax == 0 && CurlListener.rightLegMin == 0){
             Intent intent = new Intent(this, CurlCalibrateMenu.class);
             startActivity(intent);
@@ -84,12 +120,13 @@ public class StartActivity extends AppCompatActivity {
             Intent intent = new Intent(this, CurlActivity.class);
             intent.putExtra("limb", START_COUNT_RIGHT_LEG);
             startActivityForResult(intent, START_COUNT_RIGHT_LEG);
-            view.setVisibility(View.INVISIBLE);
+            view.setVisibility(View.VISIBLE);
 
         }
     }
 
     public void startLiftLeft(View view){
+
         if (CurlListener.leftLegMax == 0 && CurlListener.leftLegMin == 0){
             Intent intent = new Intent(this, CurlCalibrateMenu.class);
             startActivity(intent);
@@ -97,8 +134,7 @@ public class StartActivity extends AppCompatActivity {
             Intent intent = new Intent(this, CurlActivity.class);
             intent.putExtra("limb", START_COUNT_LEFT_LEG);
             startActivityForResult(intent, START_COUNT_LEFT_LEG);
-            view.setVisibility(View.INVISIBLE);
-
+            view.setVisibility(View.VISIBLE);
         }
     }
 
