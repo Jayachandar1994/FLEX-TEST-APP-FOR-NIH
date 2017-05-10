@@ -31,13 +31,13 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
+         <!--   <Button
                 android:id="@+id/instructionsBtn"
                 android:layout_width="@dimen/menuBtnWidth"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textSize="@dimen/textSize"
-                android:text="@string/instructionsLabel"/>
+                android:text="@string/instructionsLabel"/> -->
 
             <Button
                 android:id="@+id/calibrateBtn"
@@ -47,15 +47,7 @@
                 android:textSize="@dimen/textSize"
                 android:text="@string/calibrateDeviceLabel"/>
 
-            <!--
-            <Button
-                android:id="@+id/balloonViewProgressBtn"
-                android:layout_width="@dimen/menuBtnWidth"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:textSize="@dimen/textSize"
-                android:text="@string/viewProgressLabel"/>
-            -->
+
 
             <Button
                 android:id="@+id/takeTestBtn"

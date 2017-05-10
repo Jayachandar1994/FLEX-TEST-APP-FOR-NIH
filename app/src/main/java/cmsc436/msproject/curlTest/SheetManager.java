@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.widget.Toast;
 
 import edu.umd.cmsc436.sheets.Sheets;
 
@@ -53,7 +52,7 @@ public class SheetManager implements Sheets.Host {
     @Override
     public void notifyFinished(Exception e) {
         if(e!=null){
-            Toast.makeText(activity,e.toString(),Toast.LENGTH_LONG).show();
+           // Toast.makeText(activity,e.toString(),Toast.LENGTH_LONG).show();
             Log.e("SHEETS-API",e.toString());
         }
 

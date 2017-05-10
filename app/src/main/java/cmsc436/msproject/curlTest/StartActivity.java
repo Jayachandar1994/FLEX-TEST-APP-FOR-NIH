@@ -4,12 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 import cmsc436.msproject.R;
 import cmsc436.msproject.curlTest.calibrate.CurlCalibrateMenu;
@@ -22,8 +18,6 @@ public class StartActivity extends AppCompatActivity {
             START_COUNT_RIGHT_LEG = 3, START_COUNT_LEFT_LEG =4;
     TextView rightArmTextView, leftArmTextView, rightLegTextView, leftLegTextView;
 
-    final String myTag = "DocsUpload";
-
     SheetManager sheetManager;
     private void initTest(){
         Sheets.TestType t = TrialMode.getAppendage(Info.EXTRAS);
@@ -34,6 +28,12 @@ public class StartActivity extends AppCompatActivity {
             case LH_CURL:
                 findViewById(R.id.left_arm).setVisibility(View.VISIBLE);
                 findViewById(R.id.left_arm_text_view).setVisibility(View.VISIBLE);
+            case LF_CURL:
+                findViewById(R.id.left_leg).setVisibility(View.VISIBLE);
+                findViewById(R.id.left_leg_text_view).setVisibility(View.VISIBLE);
+            case RF_CURL:
+                findViewById(R.id.right_leg).setVisibility(View.VISIBLE);
+                findViewById(R.id.right_leg_text_view).setVisibility(View.VISIBLE);
         }
     }
 
@@ -104,28 +104,6 @@ public class StartActivity extends AppCompatActivity {
 
 
 
-    public void postData(float leftArm, float rightArm) {
-
-        String fullUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfEkWAzWBf2V6JRqYnv2K8VpF9gbkb127bDAFwKUrBNzCqEjg/formResponse";
-        HttpRequest mReq = new HttpRequest();
-        String col1 = Float.toString(leftArm);
-        String col2 = Float.toString(rightArm);
-
-        String data = null;
-        try {
-            data = "entry.1451805253=" + URLEncoder.encode(col1,"UTF-8") + "&" +
-                    "entry.8104665=" + URLEncoder.encode(col2,"UTF-8") ;
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        String response = mReq.sendPost(fullUrl, data);
-        Log.i(myTag, response);
-    }
-
-
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -174,16 +152,7 @@ public class StartActivity extends AppCompatActivity {
                 });
                 (findViewById(R.id.back_button)).setVisibility(View.VISIBLE);
             }
-//        final float finalLeftScore = leftScore;
-//        final float finalRightScore = rightScore;
-//        Thread t = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                postData(finalLeftScore, finalRightScore);
-//
-//            }
-//        });
-//        t.start();
+
         }
         else{
             sheetManager.onActivityResult(requestCode,resultCode,data);

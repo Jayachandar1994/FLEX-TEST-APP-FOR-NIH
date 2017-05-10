@@ -37,11 +37,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="edu.umd.cmsc436.flex.action.HELP" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
             <intent-filter>
                 <action android:name="edu.umd.cmsc436.flex.action.HISTORY" />
 
@@ -55,10 +51,14 @@
         </activity>
         <activity
             android:name=".curlTest.CurlInstructions"
-            android:label="@string/curlTestLabel" />
-        <activity
-            android:name=".curlTest.CurlResults"
-            android:label="@string/curlTestLabel" />
+            android:label="@string/curlTestLabel" >
+
+        <intent-filter>
+            <action android:name="edu.umd.cmsc436.flex.action.HELP" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".curlTest.calibrate.CurlCalibrateMenu"
             android:label="@string/curlLabel" />
